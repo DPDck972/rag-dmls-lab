@@ -1,0 +1,4 @@
+# Estrutura inicial: o notebook ainda nao contem codigo executavel.
+# Fixar as dependencias depois de validar o ambiente de implementacao.
+# Bibliotecas previstas: requests, pypdf, chromadb, pandas, numpy e matplotlib.
+# Ollama e os modelos serao preparados separadamente.

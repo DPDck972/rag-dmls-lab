@@ -1,0 +1,28 @@
+# Ambientes e arquivos auxiliares do Python/Jupyter
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Configuracoes pessoais e credenciais
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+
+# Modelos, indices e arquivos regeneraveis
+.cache/
+.ollama/
+models/
+chroma/
+chroma_*/
+.chroma/
+tmp/
+
+# Livro usado localmente como corpus
+/corpus/documentos/designing-machine-learning-systems-2022.pdf
