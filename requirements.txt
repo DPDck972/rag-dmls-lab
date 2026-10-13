@@ -1,4 +1,9 @@
-# Estrutura inicial: o notebook ainda nao contem codigo executavel.
-# Fixar as dependencias depois de validar o ambiente de implementacao.
-# Bibliotecas previstas: requests, pypdf, chromadb, pandas, numpy e matplotlib.
-# Ollama e os modelos serao preparados separadamente.
+requests>=2.32.0
+pypdf>=4.2.0
+pandas>=2.2.0
+numpy>=1.26.0
+matplotlib>=3.8.0
+scikit-learn>=1.5.0
+
+# Opcional para execução local do modelo via Ollama
+# Instalar e rodar o servidor localmente antes de usar as chamadas LLM.

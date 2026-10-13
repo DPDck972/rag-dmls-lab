@@ -6,7 +6,7 @@ Projeto da Unidade 01 — RAG avançado sobre *Designing Machine Learning System
 **Grupo:** 1  
 **Família:** F4 — Controle do processo  
 **Técnica proposta:** Adaptive RAG didático, com roteamento por prompts  
-**Estado:** estrutura inicial; livro candidato armazenado localmente, com recorte a definir.
+**Estado:** scaffold funcional; perguntas definidas, notebook executável em demonstração e experimento oficial ainda pendente.
 
 ## Objetivo
 
@@ -51,17 +51,28 @@ O arquivo está excluído do Git; sua identificação e hash estão registrados 
 `corpus/manifest.csv`. A página oficial da edição está disponível na
 [O'Reilly](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/).
 
-O recorte dos capítulos e as 20 perguntas ainda serão definidos. O notebook
-contém apenas a identificação inicial do projeto.
+As 20 perguntas de avaliação estão definidas em `questions.json`, em inglês,
+com categorias e níveis de dificuldade. O notebook implementa atualmente uma
+versão demonstrativa com extração do PDF, chunking, recuperação TF-IDF,
+expansão de consultas, roteamento baseline/adaptive e geração via Ollama.
+O recorte definitivo dos capítulos e a execução oficial ainda precisam ser
+registrados.
 
 ## Execução inicial
 
-Abra `notebook.ipynb` em um ambiente Jupyter com kernel Python 3, a partir desta
-pasta. O notebook ainda não contém células de código. A ingestão do corpus, o
-pipeline RAG e os experimentos serão implementados nas próximas etapas.
+Abra `notebook.ipynb` em um ambiente Jupyter com o kernel
+`Python (rag-dmls-lab)`, a partir desta pasta. O notebook já contém uma
+demonstração do pipeline RAG e requer que o PDF esteja no caminho indicado.
+O Ollama deve estar em execução com o modelo configurado em
+`configs/experiment.json`.
 
 No Colab, disponibilize o repositório completo em `/content/rag-dmls-lab`
 antes de executar as células. A reprodução no Colab ainda precisa ser validada.
+Em ambiente local, o kernel registrado é `Python (rag-dmls-lab)`.
+
+O fluxo atual executa uma amostra com as primeiras perguntas. A execução
+oficial das 20 perguntas, as repetições, os traces e os CSVs previstos em
+`results/README.md` ainda serão implementados.
 
 ## Repositório independente
 

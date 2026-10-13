@@ -1,6 +1,131 @@
 {
   "schema_version": "1.0",
-  "status": "draft",
-  "corpus_description": null,
-  "questions": []
+  "status": "ready_for_experiment",
+  "course": "DCA0305",
+  "group": 1,
+  "family": "F4",
+  "technique": "adaptive_rag_prompt_based",
+  "topic": "Designing Machine Learning Systems",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "ml_system_design",
+      "difficulty": "easy",
+      "question": "Why does the book emphasize starting with data quality and quantity when building data science or ML products?"
+    },
+    {
+      "id": "Q02",
+      "category": "data_centricity",
+      "difficulty": "easy",
+      "question": "How does the book describe the debate between improving data and designing more intelligent algorithms?"
+    },
+    {
+      "id": "Q03",
+      "category": "baselines",
+      "difficulty": "easy",
+      "question": "Why is building a simple baseline usually an essential step before trying more complex architectures?"
+    },
+    {
+      "id": "Q04",
+      "category": "data_quality",
+      "difficulty": "medium",
+      "question": "How do data quality problems, such as label noise and collection bias, affect the system's real-world performance in production?"
+    },
+    {
+      "id": "Q05",
+      "category": "distribution_shift",
+      "difficulty": "medium",
+      "question": "What are hidden feedback loops, and why can they degrade a system over time?"
+    },
+    {
+      "id": "Q06",
+      "category": "monitoring",
+      "difficulty": "medium",
+      "question": "Which data and model monitoring signals are important for detecting performance degradation in production?"
+    },
+    {
+      "id": "Q07",
+      "category": "evaluation",
+      "difficulty": "medium",
+      "question": "What is the difference between evaluating a model before deployment and evaluating its performance after deployment?"
+    },
+    {
+      "id": "Q08",
+      "category": "data_slices",
+      "difficulty": "medium",
+      "question": "Why can analyzing slices or subsets of data reveal failures that do not appear in aggregate metrics?"
+    },
+    {
+      "id": "Q09",
+      "category": "feature_engineering",
+      "difficulty": "medium",
+      "question": "How can differences between training data and data available at prediction time affect the reliability of predictions?"
+    },
+    {
+      "id": "Q10",
+      "category": "inference",
+      "difficulty": "medium",
+      "question": "What trade-offs exist among latency, throughput, computational cost, and reliability when serving predictions?"
+    },
+    {
+      "id": "Q11",
+      "category": "retraining",
+      "difficulty": "medium",
+      "question": "How should a team decide when a model needs to be retrained instead of keeping the current model?"
+    },
+    {
+      "id": "Q12",
+      "category": "observability",
+      "difficulty": "easy",
+      "question": "Why are monitoring and logging important in ML systems, and what should be recorded beyond traditional evaluation metrics?"
+    },
+    {
+      "id": "Q13",
+      "category": "risk_management",
+      "difficulty": "medium",
+      "question": "How can system design account for rare events and underrepresented groups that may be hidden by aggregate performance?"
+    },
+    {
+      "id": "Q14",
+      "category": "design_principles",
+      "difficulty": "easy",
+      "question": "What is the role of engineering decisions in an ML project beyond choosing the algorithm?"
+    },
+    {
+      "id": "Q15",
+      "category": "experimentation",
+      "difficulty": "medium",
+      "question": "How can the impact of a change in a recommendation or classification system be evaluated beyond local model metrics?"
+    },
+    {
+      "id": "Q16",
+      "category": "data_pipeline",
+      "difficulty": "medium",
+      "question": "Why is a well-designed data pipeline important for the quality and reproducibility of an ML system?"
+    },
+    {
+      "id": "Q17",
+      "category": "ml_debt",
+      "difficulty": "hard",
+      "question": "What does technical debt mean in ML systems, and how can it appear even when the model itself seems to work?"
+    },
+    {
+      "id": "Q18",
+      "category": "serving",
+      "difficulty": "hard",
+      "question": "Comparing precomputed batch predictions with online predictions, in which scenarios is each approach more appropriate, and what operational costs does each impose?"
+    },
+    {
+      "id": "Q19",
+      "category": "model_selection",
+      "difficulty": "hard",
+      "question": "How should model selection be guided by real system constraints such as inference cost, operational stability, and the need for explainability?"
+    },
+    {
+      "id": "Q20",
+      "category": "end_to_end",
+      "difficulty": "hard",
+      "question": "Why must the evaluation of an ML system consider the entire workflow, from data collection and labeling to the impact on the end user, instead of focusing only on the model in isolation?"
+    }
+  ]
 }

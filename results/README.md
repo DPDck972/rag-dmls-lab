@@ -1,8 +1,12 @@
 # Resultados
 
-**Estado:** nenhum experimento executado.
+**Estado:** demonstração executada; nenhum resultado oficial versionado.
 
 Os CSVs serão gerados pelo notebook, com respostas e medições reais.
+
+A demonstração atual produz apenas um `DataFrame` em memória para uma amostra
+das perguntas. Ela ainda não gera os arquivos oficiais abaixo nem traces
+persistentes.
 
 ## Arquivos previstos
 
@@ -25,3 +29,10 @@ Cada resposta deve identificar pergunta, variante e execução, além de registr
 correção, fontes, latência e chamadas ao modelo.
 Todos os resultados oficiais serão versionados. A tabela final deverá poder ser
 regenerada a partir dos CSVs sem chamar os modelos novamente.
+
+## Critério para resultados oficiais
+
+Uma execução oficial deverá registrar a versão da configuração, o hash do
+corpus, o modelo utilizado, a variante (`baseline` ou `adaptive`), a repetição,
+os trechos recuperados, a resposta, a latência e as chamadas ao modelo. Os
+resultados só devem ser publicados após a execução completa das 20 perguntas.
