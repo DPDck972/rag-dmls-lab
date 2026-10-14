@@ -23,6 +23,7 @@
   "seed": 42,
   "baseline_repetitions": 3,
   "adaptive_repetitions": 3,
+  "self_rag_repetitions": 3,
   "max_rounds": 2,
   "max_subqueries_per_round": 2,
   "structured_output_retries": 1
