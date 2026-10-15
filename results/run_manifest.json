@@ -1,5 +1,5 @@
 {
-  "created_at_utc": "2026-10-14T13:24:31.008146+00:00",
+  "created_at_utc": "2026-10-15T01:37:56.479514+00:00",
   "config": {
     "schema_version": "1.0",
     "status": "scaffold_ready",
@@ -31,16 +31,53 @@
     "structured_output_retries": 1
   },
   "config_sha256": "d36a68f36075680ea6a9f3543e5a818b0b6f6c3af29063b6f52dc84bffb1e0be",
-  "questions_sha256": "427b17c608935d18e8a801ae3d7338e48246dfb5dbaaa5abd0f034f503532464",
-  "corpus_pdf": "corpus/documentos/designing-machine-learning-systems-2022.pdf",
+  "questions_sha256": "54f2bf2879a0ce7af7fc3d9054d6fc4402e0fd3bed29973b174fe4e40be2332a",
+  "corpus_pdf": "designing-machine-learning-systems-2022.pdf",
   "corpus_sha256": "688ba89df4e8fbcf681218e194017ad665ed2a1641916224758b9a6c17e29fab",
   "question_count": 20,
-  "chunk_count": 719,
+  "chunk_count": 713,
   "variants": {
     "baseline": 3,
     "adaptive": 3,
     "self_rag": 3
   },
+  "warmup_per_variant": true,
   "trace_file": "results/traces/official_runs.jsonl",
-  "total_expected_responses": 180
+  "fusion_function": "rrf_fuse",
+  "fusion_signature": "(ranked_lists, k, c=60)",
+  "adaptive_patterns": [
+    "\\bcompar\\w*",
+    "\\btrade-?offs?\\b",
+    "\\barchitectures?\\b",
+    "\\bdesign(?:s|ing|ed)?\\b",
+    "\\bmonitor(?:s|ing)?\\b",
+    "\\blatenc(?:y|ies)\\b",
+    "\\bcosts?\\b",
+    "\\bobservabilit\\w*",
+    "\\bsystems?\\b",
+    "\\bserving\\b"
+  ],
+  "route_list": {
+    "Q01": "baseline",
+    "Q02": "adaptive",
+    "Q03": "adaptive",
+    "Q04": "adaptive",
+    "Q05": "adaptive",
+    "Q06": "adaptive",
+    "Q07": "baseline",
+    "Q08": "baseline",
+    "Q09": "baseline",
+    "Q10": "adaptive",
+    "Q11": "baseline",
+    "Q12": "adaptive",
+    "Q13": "adaptive",
+    "Q14": "baseline",
+    "Q15": "adaptive",
+    "Q16": "adaptive",
+    "Q17": "adaptive",
+    "Q18": "adaptive",
+    "Q19": "adaptive",
+    "Q20": "adaptive"
+  },
+  "seed_config": 42
 }

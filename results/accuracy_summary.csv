@@ -1,0 +1,4 @@
+variant,accuracy,parse_errors,n
+adaptive,0.4,0,60
+baseline,0.3,0,60
+self_rag,0.3,0,60
