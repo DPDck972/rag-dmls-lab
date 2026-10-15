@@ -20,38 +20,55 @@ execuções.
 
 ```text
 rag-dmls-lab/
-├── README.md
-├── .gitignore
-├── notebook.ipynb
-├── questions.json
-├── requirements.txt
-├── configs/
+├── configs
 │   └── experiment.json
-├── corpus/
-│   ├── README.md
+├── corpus
+│   ├── documentos
+│   │   └── designing-machine-learning-systems-2022.pdf
 │   ├── manifest.csv
-│   └── documentos/
-│       └── .gitkeep
-├── prompts/
-│   ├── README.md
-│   └── generator.txt
-├── results/
-│   ├── accuracy.csv
-│   ├── accuracy_summary.csv
-│   ├── analise_rag_dmls.xlsx
-│   ├── diagnostico_baseline.csv
-│   ├── divergencias_variantes.csv
-│   ├── disagreements.csv
-│   ├── results_adaptive.csv
-│   ├── run_manifest.json
-│   ├── summary.csv
-│   ├── baseline_r{1,2,3}.csv
-│   ├── self_rag_r{1,2,3}.csv
-│   ├── imagem/
-│   ├── por_repeticao/
-│   └── traces/
-└── docs/
-    └── README.md
+│   └── README.md
+├── docs
+│   └── README.md
+├── notebook.ipynb
+├── prompts
+│   ├── generator.txt
+│   └── README.md
+├── questions.json
+├── README.md
+├── requirements.txt
+└── results
+    ├── accuracy.csv
+    ├── accuracy_summary.csv
+    ├── analise_rag_dmls.xlsx
+    ├── baseline_r1.csv
+    ├── baseline_r2.csv
+    ├── baseline_r3.csv
+    ├── diagnostico_baseline.csv
+    ├── disagreements.csv
+    ├── divergencias_variantes.csv
+    ├── imagem
+    │   ├── acuracia_sinal_ruido.png
+    │   ├── boxplot_latencia.png
+    │   ├── chamadas_e_latencia.png
+    │   └── qualidade_respostas.png
+    ├── por_repeticao
+    │   ├── adaptive_r1.csv
+    │   ├── adaptive_r2.csv
+    │   ├── adaptive_r3.csv
+    │   ├── baseline_r1.csv
+    │   ├── baseline_r2.csv
+    │   ├── baseline_r3.csv
+    │   ├── self_rag_r1.csv
+    │   ├── self_rag_r2.csv
+    │   └── self_rag_r3.csv
+    ├── results_adaptive.csv
+    ├── run_manifest.json
+    ├── self_rag_r1.csv
+    ├── self_rag_r2.csv
+    ├── self_rag_r3.csv
+    ├── summary.csv
+    └── traces
+        └── official_runs.jsonl
 ```
 
 ## Corpus local
