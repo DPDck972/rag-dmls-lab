@@ -6,7 +6,8 @@ Projeto da Unidade 01 — RAG avançado sobre *Designing Machine Learning System
 **Grupo:** 1  
 **Família:** F4 — Controle do processo  
 **Técnica proposta:** comparação entre Baseline RAG, Adaptive RAG e Self-RAG
-**Estado:** notebook preparado para o experimento oficial de três variantes; a nova execução de 180 respostas ainda precisa ser realizada.
+**Estado:** experimento executado; resultados, diagnósticos e visualizações
+versionados em `results/`.
 
 ## Objetivo
 
@@ -15,7 +16,7 @@ pergunta e uma variante Self-RAG que critica o suporte da própria resposta.
 Investigar qualidade das respostas, latência, chamadas ao LLM e variação entre
 execuções.
 
-## Estrutura atual
+## Estrutura do projeto
 
 ```text
 rag-dmls-lab/
@@ -32,13 +33,23 @@ rag-dmls-lab/
 │   └── documentos/
 │       └── .gitkeep
 ├── prompts/
-│   └── README.md
-├── results/
 │   ├── README.md
-│   ├── traces/
-│   │   └── .gitkeep
-│   └── figures/
-│       └── .gitkeep
+│   └── generator.txt
+├── results/
+│   ├── accuracy.csv
+│   ├── accuracy_summary.csv
+│   ├── analise_rag_dmls.xlsx
+│   ├── diagnostico_baseline.csv
+│   ├── divergencias_variantes.csv
+│   ├── disagreements.csv
+│   ├── results_adaptive.csv
+│   ├── run_manifest.json
+│   ├── summary.csv
+│   ├── baseline_r{1,2,3}.csv
+│   ├── self_rag_r{1,2,3}.csv
+│   ├── imagem/
+│   ├── por_repeticao/
+│   └── traces/
 └── docs/
     └── README.md
 ```
@@ -53,12 +64,15 @@ O arquivo está excluído do Git; sua identificação e hash estão registrados 
 [O'Reilly](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/).
 
 As 20 perguntas de avaliação estão definidas em `questions.json`, em inglês,
-com categorias e níveis de dificuldade. O notebook implementa uma demonstração
-com extração do PDF, chunking, recuperação TF-IDF, expansão de consultas,
-roteamento baseline/adaptive, crítica Self-RAG e geração via Ollama.
+com categorias e níveis de dificuldade. O notebook implementa extração do PDF,
+chunking, recuperação TF-IDF, expansão de consultas, roteamento
+baseline/adaptive, crítica Self-RAG e geração via Ollama.
+
 O Self-RAG gera uma resposta inicial, solicita uma crítica estruturada sobre
 relevância e suporte factual e faz uma nova recuperação quando a crítica indica
-evidência insuficiente.
+evidência insuficiente. O prompt de geração é carregado de
+`prompts/generator.txt`, mantendo o contrato de geração separado do código do
+notebook.
 
 ## Execução inicial
 
@@ -69,13 +83,14 @@ O Ollama deve estar em execução com o modelo configurado em
 `configs/experiment.json`.
 
 No Colab, disponibilize o repositório completo em `/content/rag-dmls-lab`
-antes de executar as células. A reprodução no Colab ainda precisa ser validada.
+antes de executar as células. A reprodução no Colab ainda precisa ser validada, para exte experimento foi utilizada uma GPU: NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB.
 Em ambiente local, o kernel registrado é `Python (rag-dmls-lab)`.
 
-O fluxo começa pelo smoke test com as primeiras perguntas. Após o smoke test,
-execute a célula `run_official_experiment()` para processar 20 perguntas em
-três repetições para cada variante, totalizando 180 respostas. O executor
-salva os CSVs, o trace JSONL e o manifesto descritos em `results/README.md`.
+O fluxo começa pelo smoke test com as primeiras perguntas. Para reproduzir a
+execução oficial, execute a célula `run_official_experiment()` e, em seguida,
+as células de análise do notebook. A configuração processa 20 perguntas em
+três repetições para cada variante, totalizando 180 respostas. Os resultados
+brutos, agregados e derivados são salvos em `results/`.
 
 As variantes são:
 
@@ -86,6 +101,26 @@ As variantes são:
 
 O Self-RAG registra `llm_calls`, `retrieval_rounds`, `reflection_triggered` e
 `reflection_supported` para permitir a comparação de custo e comportamento.
+
+## Resultados
+
+Os principais artefatos versionados são:
+
+- `summary.csv`: base consolidada das respostas e métricas das variantes;
+- `accuracy.csv` e `accuracy_summary.csv`: avaliações de acurácia e seus
+  agregados;
+- `diagnostico_baseline.csv`: diagnóstico específico das execuções Baseline;
+- `divergencias_variantes.csv` e `disagreements.csv`: comparação das respostas
+  e divergências entre variantes;
+- `run_manifest.json`: configuração, hashes e metadados da execução;
+- `traces/official_runs.jsonl`: trace detalhado das execuções;
+- `analise_rag_dmls.xlsx`: planilha consolidada para inspeção dos resultados;
+- `imagem/`: gráficos de acurácia, latência, chamadas ao modelo e qualidade;
+- `por_repeticao/`: resultados separados por variante e repetição.
+
+Os arquivos de resultado permitem analisar qualidade, latência, custo de
+inferência, número de chamadas ao LLM, recuperação e estabilidade entre
+repetições sem executar novamente os modelos.
 
 ## Repositório independente
 
