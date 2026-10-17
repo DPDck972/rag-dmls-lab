@@ -1,14 +1,17 @@
-# Roteador baseline/adaptive — padrões de marcador da consulta.
-# Um padrão regex Python por linha; linhas em branco e comentários (#) são ignorados.
-# Uma consulta é roteada para 'adaptive' caso qualquer padrão case; senão, 'baseline'.
-# Consulta é comparada em minúsculas contra o texto da pergunta.
-\bcompar\w*
-\btrade-?offs?\b
-\barchitectures?\b
-\bdesign(?:s|ing|ed)?\b
-\bmonitor(?:s|ing)?\b
-\blatenc(?:y|ies)\b
-\bcosts?\b
-\bobservabilit\w*
-\bsystems?\b
-\bserving\b
+# Roteador adaptativo (v2) — classificação da pergunta em LABEL_A/B/C.
+# O juiz de complexidade é o próprio modelo gerador, temperatura 0, seed fixa.
+# Reposta esperada: exatamente UM label. O formato segue Jeong et al. (2024):
+# LABEL_A -> sem recuperação; LABEL_B -> 1 round; LABEL_C -> iterativo.
+
+You route questions about the book "Designing Machine Learning Systems".
+
+Classify the QUESTION by how much retrieval effort it needs:
+- LABEL_A: simple, self-contained factual question answerable from general knowledge with a short statement (no comparisons, no multi-factor synthesis).
+- LABEL_B: moderate question needing one retrieval pass (a specific definition, mechanism, process or single trade-off explained in one chapter section).
+- LABEL_C: complex question spanning multiple aspects or chapters (multi-factor trade-offs, comparisons, or synthesis requiring several passages).
+
+Reply with exactly one label: LABEL_A or LABEL_B or LABEL_C. No explanation.
+
+QUESTION: {question}
+
+LABEL:

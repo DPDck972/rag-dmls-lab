@@ -12,140 +12,326 @@
       "category": "ml_system_design",
       "difficulty": "easy",
       "question": "Why does the book emphasize starting with data quality and quantity when building data science or ML products?",
-      "answer_key": "ML systems learn from data, so data quality and quantity set the ceiling on performance; no algorithm compensates for bad or insufficient data."
+      "answer_key": "ML systems learn from data, so data quality and quantity set the ceiling on performance; no algorithm compensates for bad or insufficient data.",
+      "answer_rubric": {
+        "must": [
+          "ML systems learn from data, so data quality and quantity set the ceiling on system performance.",
+          "No algorithm compensates for bad or insufficient data (the Dr. Monica Rogati argument that \"data is the foundation\")."
+        ],
+        "accepted_alternatives": [
+          "A \"garbage in, garbage out\" formulation or the practical rationale from chapter 1 (data-dependent applications, collection cost, risks of unrepresentative data)."
+        ]
+      }
     },
     {
       "id": "Q02",
       "category": "data_centricity",
       "difficulty": "easy",
       "question": "How does the book describe the debate between improving data and designing more intelligent algorithms?",
-      "answer_key": "The book describes the data-centric vs model-centric debate and leans data-centric: improving data quality often yields bigger practical gains than designing more intelligent algorithms."
+      "answer_key": "The book describes the data-centric vs model-centric debate and leans data-centric: improving data quality often yields bigger practical gains than designing more intelligent algorithms.",
+      "answer_rubric": {
+        "must": [
+          "Characterize the data-centric vs model-centric debate (where to invest effort: improving data vs designing more intelligent algorithms).",
+          "Acknowledge that both sides have valid cases and the best choice depends on context."
+        ],
+        "accepted_alternatives": [
+          "Taking the data-centric position: improving data often yields larger practical gains.",
+          "Taking the model-centric or a neutral/conditional stance (\"both matter; it depends\") — as long as both sides are characterized fairly.",
+          "NOTE: the v1 answer_key (\"leans data-centric\") is no longer mandatory; the neutral stance was unfairly penalized in v1."
+        ],
+        "note": "O gabarito único da v1 penalizava a resposta neutra; a rubrica v2 aceita qualquer posição defensável que caracterize o debate corretamente."
+      }
     },
     {
       "id": "Q03",
       "category": "baselines",
       "difficulty": "easy",
       "question": "Why is building a simple baseline usually an essential step before trying more complex architectures?",
-      "answer_key": "A simple baseline is cheap and fast, sets a reference point to judge whether complex models add real value, and exposes data and labeling problems early."
+      "answer_key": "A simple baseline is cheap and fast, sets a reference point to judge whether complex models add real value, and exposes data and labeling problems early.",
+      "answer_rubric": {
+        "must": [
+          "A simple baseline is cheap and fast and serves as a reference point to judge whether complex architectures add real value.",
+          "Baselines expose data and labeling problems early and avoid adding complexity without evidence."
+        ],
+        "accepted_alternatives": [
+          "Mentioning baseline types (majority prediction, heuristic, human-level) with the reference-point role."
+        ]
+      }
     },
     {
       "id": "Q04",
       "category": "data_quality",
       "difficulty": "medium",
       "question": "How do data quality problems, such as label noise and collection bias, affect the system's real-world performance in production?",
-      "answer_key": "Label noise teaches the model wrong correlations and collection bias makes it learn patterns that fail to generalize, so real-world performance degrades, especially on underrepresented groups, and failures surface after deployment."
+      "answer_key": "Label noise teaches the model wrong correlations and collection bias makes it learn patterns that fail to generalize, so real-world performance degrades, especially on underrepresented groups, and failures surface after deployment.",
+      "answer_rubric": {
+        "must": [
+          "Label noise teaches the model wrong correlations.",
+          "Collection bias makes the model learn patterns that fail to generalize, especially on underrepresented groups.",
+          "The resulting failures surface after deployment, in production."
+        ],
+        "accepted_alternatives": [
+          "Spurious relationships spawned in production as the documented consequence."
+        ]
+      }
     },
     {
       "id": "Q05",
       "category": "distribution_shift",
       "difficulty": "medium",
       "question": "What are hidden feedback loops, and why can they degrade a system over time?",
-      "answer_key": "Hidden feedback loops occur when model predictions influence future training data (e.g., a recommender amplifying popular items), so the model reinforces its own biases and degrades over time."
+      "answer_key": "Hidden feedback loops occur when model predictions influence future training data (e.g., a recommender amplifying popular items), so the model reinforces its own biases and degrades over time.",
+      "answer_rubric": {
+        "must": [
+          "Hidden feedback loops: the model's predictions influence future training data.",
+          "Typical example: a recommender amplifying popular items, so the model reinforces its own biases and degrades over time."
+        ],
+        "accepted_alternatives": [
+          "Analogous book examples (bots clicking on predictions, spam filter interactions) as long as the predictions-into-training-data mechanism is clear."
+        ]
+      }
     },
     {
       "id": "Q06",
       "category": "monitoring",
       "difficulty": "medium",
       "question": "Which data and model monitoring signals are important for detecting performance degradation in production?",
-      "answer_key": "Data monitoring signals: distribution shift, data drift, missing values, outliers. Model monitoring signals: prediction drift, confidence scores, accuracy proxies on live traffic."
+      "answer_key": "Data monitoring signals: distribution shift, data drift, missing values, outliers. Model monitoring signals: prediction drift, confidence scores, accuracy proxies on live traffic.",
+      "answer_rubric": {
+        "must": [
+          "DATA monitoring signals: distribution shift / data drift, missing values, outliers.",
+          "MODEL monitoring signals: prediction/model drift (statistics over predictions), confidence scores, and accuracy proxies on live traffic (ground truth arrives late)."
+        ],
+        "accepted_alternatives": [
+          "Naming prediction drift as distribution shift over predictions, and naming specific tests (KS test, chi-square) — equivalent approaches."
+        ]
+      }
     },
     {
       "id": "Q07",
       "category": "evaluation",
       "difficulty": "medium",
       "question": "What is the difference between evaluating a model before deployment and evaluating its performance after deployment?",
-      "answer_key": "Pre-deployment evaluation uses offline metrics on held-out test sets under controlled data; post-deployment evaluation measures real-world performance under live traffic, distribution shift and feedback loops, revealing issues invisible offline."
+      "answer_key": "Pre-deployment evaluation uses offline metrics on held-out test sets under controlled data; post-deployment evaluation measures real-world performance under live traffic, distribution shift and feedback loops, revealing issues invisible offline.",
+      "answer_rubric": {
+        "must": [
+          "Pre-deployment evaluation uses offline metrics on held-out test sets with static/controlled data.",
+          "Post-deployment evaluation measures real-world performance under live traffic, distribution shift and feedback loops.",
+          "Post-deployment evaluation reveals failure modes invisible offline."
+        ],
+        "accepted_alternatives": [
+          "Mentioning the delayed ground-truth nature of production, or the gap between tested data and live data."
+        ]
+      }
     },
     {
       "id": "Q08",
       "category": "data_slices",
       "difficulty": "medium",
       "question": "Why can analyzing slices or subsets of data reveal failures that do not appear in aggregate metrics?",
-      "answer_key": "Aggregate metrics average out failures concentrated in specific subgroups; slice analysis reveals underperformance on minorities, rare cases or edge cases that overall numbers hide."
+      "answer_key": "Aggregate metrics average out failures concentrated in specific subgroups; slice analysis reveals underperformance on minorities, rare cases or edge cases that overall numbers hide.",
+      "answer_rubric": {
+        "must": [
+          "Aggregate metrics average out failures concentrated in specific subgroups.",
+          "Slice-based analysis reveals underperformance on minorities, rare classes or edge cases that overall numbers hide."
+        ],
+        "accepted_alternatives": [
+          "A concrete example (good aggregate performance but poor on a demographic slice) with the correct mechanism."
+        ]
+      }
     },
     {
       "id": "Q09",
       "category": "feature_engineering",
       "difficulty": "medium",
       "question": "How can differences between training data and data available at prediction time affect the reliability of predictions?",
-      "answer_key": "Train-serving skew: when features are computed differently at training and prediction time, the model sees a different distribution in production and predictions become unreliable."
+      "answer_key": "Train-serving skew: when features are computed differently at training and prediction time, the model sees a different distribution in production and predictions become unreliable.",
+      "answer_rubric": {
+        "must": [
+          "Train-serving skew: features are computed differently at training and at serving/prediction time.",
+          "The model then sees a different distribution in production, so predictions become unreliable even if the model itself is healthy."
+        ],
+        "accepted_alternatives": [
+          "Mitigations (unified pipeline, feature store) framed as a consequence of the problem."
+        ]
+      }
     },
     {
       "id": "Q10",
       "category": "inference",
       "difficulty": "medium",
       "question": "What trade-offs exist among latency, throughput, computational cost, and reliability when serving predictions?",
-      "answer_key": "Lower latency usually costs more compute or simpler models; batching raises throughput but adds latency; reliability requires redundancy that increases cost — every serving design balances these four."
+      "answer_key": "Lower latency usually costs more compute or simpler models; batching raises throughput but adds latency; reliability requires redundancy that increases cost — every serving design balances these four.",
+      "answer_rubric": {
+        "must": [
+          "Lower latency usually costs more compute or requires simpler/less flexible models.",
+          "Batching raises throughput but adds latency.",
+          "Reliability requires redundancy, which increases cost — serving design balances all four factors."
+        ],
+        "accepted_alternatives": [
+          "Framing latency, throughput, cost and reliability as a multi-objective trade-off with concrete serving examples."
+        ]
+      }
     },
     {
       "id": "Q11",
       "category": "retraining",
       "difficulty": "medium",
       "question": "How should a team decide when a model needs to be retrained instead of keeping the current model?",
-      "answer_key": "Retrain when monitored signals show performance degradation or data drift, or when new labeled data adds value; the decision balances retraining cost against expected performance gain."
+      "answer_key": "Retrain when monitored signals show performance degradation or data drift, or when new labeled data adds value; the decision balances retraining cost against expected performance gain.",
+      "answer_rubric": {
+        "must": [
+          "Retrain when monitored signals show performance degradation or data drift, or when fresh labeled data adds value.",
+          "Balance the cost of retraining against the expected performance gain."
+        ],
+        "accepted_alternatives": [
+          "Adding that retraining is not always the answer — the data pipeline or the features may be the real problem."
+        ]
+      }
     },
     {
       "id": "Q12",
       "category": "observability",
       "difficulty": "easy",
       "question": "Why are monitoring and logging important in ML systems, and what should be recorded beyond traditional evaluation metrics?",
-      "answer_key": "Production fails in ways offline metrics miss; logging inputs, outputs and predictions enables debugging, drift detection, auditing and building future training sets."
+      "answer_key": "Production fails in ways offline metrics miss; logging inputs, outputs and predictions enables debugging, drift detection, auditing and building future training sets.",
+      "answer_rubric": {
+        "must": [
+          "Production fails in ways offline metrics miss, so monitoring and logging are essential.",
+          "Logging inputs, outputs and predictions enables debugging, drift detection, auditing and building future training sets."
+        ],
+        "accepted_alternatives": [
+          "Mentioning feature/model versioning or ML-specific observability as part of what must be recorded."
+        ]
+      }
     },
     {
       "id": "Q13",
       "category": "risk_management",
       "difficulty": "medium",
       "question": "How can system design account for rare events and underrepresented groups that may be hidden by aggregate performance?",
-      "answer_key": "Through targeted data collection, slice-based evaluation, fairness metrics and scenario testing on rare events and underrepresented groups, since aggregate performance hides them."
+      "answer_key": "Through targeted data collection, slice-based evaluation, fairness metrics and scenario testing on rare events and underrepresented groups, since aggregate performance hides them.",
+      "answer_rubric": {
+        "must": [
+          "Use targeted data collection to cover rare events and underrepresented groups.",
+          "Evaluate on slices (fairness metrics, rare-event scenarios) instead of aggregate performance alone."
+        ],
+        "accepted_alternatives": [
+          "Scenario testing, canary/safety evaluation, or explicit fairness criteria as the mechanism."
+        ]
+      }
     },
     {
       "id": "Q14",
       "category": "design_principles",
       "difficulty": "easy",
       "question": "What is the role of engineering decisions in an ML project beyond choosing the algorithm?",
-      "answer_key": "Most of an ML project is engineering: data pipelines, infrastructure, deployment and monitoring determine reliability, scalability and maintainability — the algorithm is only a small part."
+      "answer_key": "Most of an ML project is engineering: data pipelines, infrastructure, deployment and monitoring determine reliability, scalability and maintainability — the algorithm is only a small part.",
+      "answer_rubric": {
+        "must": [
+          "Most of an ML project is engineering: data pipelines, infrastructure, deployment and monitoring dominate the work.",
+          "Those engineering decisions determine reliability, scalability and maintainability — the algorithm is only a small part."
+        ],
+        "accepted_alternatives": [
+          "The book's point about off-the-shelf solutions and incremental improvements making engineering central."
+        ]
+      }
     },
     {
       "id": "Q15",
       "category": "experimentation",
       "difficulty": "medium",
       "question": "How can the impact of a change in a recommendation or classification system be evaluated beyond local model metrics?",
-      "answer_key": "Through online experimentation (A/B tests) measuring business and user-level metrics, since local model metrics do not capture system-wide and long-term impact of a change."
+      "answer_key": "Through online experimentation (A/B tests) measuring business and user-level metrics, since local model metrics do not capture system-wide and long-term impact of a change.",
+      "answer_rubric": {
+        "must": [
+          "Online experimentation (A/B tests) measures business and user-level metrics that local model metrics miss.",
+          "Offline/local metrics do not capture system-wide and long-term impact of a change."
+        ],
+        "accepted_alternatives": [
+          "The book's caveat against over-indexing on business metrics at the expense of user experience."
+        ]
+      }
     },
     {
       "id": "Q16",
       "category": "data_pipeline",
       "difficulty": "medium",
       "question": "Why is a well-designed data pipeline important for the quality and reproducibility of an ML system?",
-      "answer_key": "A well-designed pipeline ensures consistent, validated and versioned data with tracked lineage; without it, pipeline bugs silently corrupt training and results are not reproducible."
+      "answer_key": "A well-designed pipeline ensures consistent, validated and versioned data with tracked lineage; without it, pipeline bugs silently corrupt training and results are not reproducible.",
+      "answer_rubric": {
+        "must": [
+          "A well-designed pipeline keeps data consistent, validated and versioned with tracked lineage.",
+          "Without it, pipeline bugs silently corrupt training results and nothing is reproducible."
+        ],
+        "accepted_alternatives": [
+          "Reproducibility and faster iteration as documented secondary benefits."
+        ]
+      }
     },
     {
       "id": "Q17",
       "category": "ml_debt",
       "difficulty": "hard",
       "question": "What does technical debt mean in ML systems, and how can it appear even when the model itself seems to work?",
-      "answer_key": "ML technical debt includes entangled data dependencies, glue code, pipeline jungles and undeclared consumers; the model can appear to work while the surrounding system becomes risky and slow to change."
+      "answer_key": "ML technical debt includes entangled data dependencies, glue code, pipeline jungles and undeclared consumers; the model can appear to work while the surrounding system becomes risky and slow to change.",
+      "answer_rubric": {
+        "must": [
+          "ML technical debt: entangled data dependencies, glue code, pipeline jungles, undeclared consumers.",
+          "The model may appear to work while the surrounding system becomes fragile, costly and slow to change."
+        ],
+        "accepted_alternatives": [
+          "C++ debt items such as dead code, correction cascades or causal confusion listed by the book's referenced sources."
+        ]
+      }
     },
     {
       "id": "Q18",
       "category": "serving",
       "difficulty": "hard",
       "question": "Comparing precomputed batch predictions with online predictions, in which scenarios is each approach more appropriate, and what operational costs does each impose?",
-      "answer_key": "Batch precomputes predictions: cheap and high-throughput but stale, requiring known entities in advance. Online predicts on demand: fresh and real-time but costlier, with higher latency and infrastructure complexity."
+      "answer_key": "Batch precomputes predictions: cheap and high-throughput but stale, requiring known entities in advance. Online predicts on demand: fresh and real-time but costlier, with higher latency and infrastructure complexity.",
+      "answer_rubric": {
+        "must": [
+          "Batch predictions are precomputed: cheap and high-throughput, but stale and requiring the entities to be known in advance.",
+          "Online predictions happen on demand: fresh and real-time, but costlier, with higher latency and infrastructure complexity."
+        ],
+        "accepted_alternatives": [
+          "Hybrid designs (batch precomputes a base, online complements/refreshes) correctly framed."
+        ]
+      }
     },
     {
       "id": "Q19",
       "category": "model_selection",
       "difficulty": "hard",
       "question": "How should model selection be guided by real system constraints such as inference cost, operational stability, and the need for explainability?",
-      "answer_key": "Model selection must weigh inference cost, latency, operational stability and explainability alongside accuracy; a slightly less accurate model that is cheaper, faster and more explainable often wins in production."
+      "answer_key": "Model selection must weigh inference cost, latency, operational stability and explainability alongside accuracy; a slightly less accurate model that is cheaper, faster and more explainable often wins in production.",
+      "answer_rubric": {
+        "must": [
+          "Model selection weighs inference cost, latency, operational stability and explainability alongside accuracy.",
+          "A slightly less accurate model that is cheaper, faster and more explainable often wins in production."
+        ],
+        "accepted_alternatives": [
+          "The same trade-off framed via the model hierarchy (heuristic/simple → MLP → complex) used by the book for baselines."
+        ]
+      }
     },
     {
       "id": "Q20",
       "category": "end_to_end",
       "difficulty": "hard",
       "question": "Why must the evaluation of an ML system consider the entire workflow, from data collection and labeling to the impact on the end user, instead of focusing only on the model in isolation?",
-      "answer_key": "Model quality is not system quality: data collection, labeling, serving and user impact all shape outcomes, so evaluating only the model misses failures introduced elsewhere in the workflow."
+      "answer_key": "Model quality is not system quality: data collection, labeling, serving and user impact all shape outcomes, so evaluating only the model misses failures introduced elsewhere in the workflow.",
+      "answer_rubric": {
+        "must": [
+          "Model quality is not system quality: data collection, labeling, serving and user impact all shape outcomes.",
+          "Evaluating only the model misses failure modes introduced elsewhere in the workflow."
+        ],
+        "accepted_alternatives": [
+          "Framing end-to-end evaluation as continuous monitoring of the whole workflow plus business/user impact."
+        ]
+      }
     }
   ]
 }

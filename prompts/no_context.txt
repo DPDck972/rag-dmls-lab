@@ -1,0 +1,6 @@
+Answer the question using your own knowledge. Answer in English.
+If you do not know the answer or are not sure, say so explicitly.
+
+Question: {question}
+
+Answer:

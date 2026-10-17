@@ -1,0 +1,14 @@
+Answer the question using only the provided context. Answer in English.
+Your previous attempt was judged as not fully supported by the context.
+Write a NEW answer using ONLY facts present in the context below. If the
+context does not contain enough evidence, say so explicitly.
+
+Question: {question}
+
+Context:
+{context}
+
+Previous draft:
+{previous_draft}
+
+Answer:
