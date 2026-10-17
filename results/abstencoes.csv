@@ -1,0 +1,4 @@
+variant,n_execucoes,n_abstencoes,taxa_abstencao,n_respondido,corretas_quando_responde,precisao_se_responde,metodo
+baseline,60,18,0.3,42,18,0.4286,regex abstencao: (not enough evidence|does not contain|insufficient|no initial evidence|cannot provide|cannot answer|say so explicitly|do not know|don't know|não encontrei)
+adaptive,60,36,0.6,24,24,1.0,regex abstencao: (not enough evidence|does not contain|insufficient|no initial evidence|cannot provide|cannot answer|say so explicitly|do not know|don't know|não encontrei)
+self_rag,60,18,0.3,42,18,0.4286,regex abstencao: (not enough evidence|does not contain|insufficient|no initial evidence|cannot provide|cannot answer|say so explicitly|do not know|don't know|não encontrei)
