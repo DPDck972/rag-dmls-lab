@@ -1,7 +1,19 @@
 # results/ — índice das runs
 
-Este diretório contém, desde a v2, as **duas gerações** de resultados do
+Este diretório contém, desde a v2, as **três gerações** de resultados do
 experimento. Não apagar nada daqui: o snapshot da v1 é proveniência congelada.
+
+## 0. Run v2.1 (atual) — `experiment_v3` (2026-10-17)
+
+Fonte de verdade no Drive: `Meu Drive/rag-dmls-v2/results/` (GPU RTX PRO
+6000 Blackwell; manifesto logs `top_k: 10`, `context_char_cap: 6000`,
+690 chunks pós-filtro de boilerplate). Hybrid retrieval (TF-IDF + nomic
+fusão RRF) em todas as variantes com retrieval; grader com escopo
+(`configs/question_scope.json`). Headline: **baseline / self_rag /
+adaptive_route 1,00 > pure_llm 0,95**; abstenções 21/420 (5%); múltiplos
+McNemar vs pure: 3 × 0 (trio lexical, p = 0,25) — ver README principal.
+Run **parcial** do mesmo dia (hybrid com top_k 4 por clone defasado do
+config) preservada no Drive como `results_v21_parcial_topk4/`.
 
 ## 1. Run v1 (congelada) — `run_2026-10-15_v1/`
 

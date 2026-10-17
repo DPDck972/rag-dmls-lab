@@ -6,7 +6,12 @@ Projeto da Unidade 01 — RAG avançado sobre *Designing Machine Learning System
 **Grupo:** 1  
 **Família:** F4 — Controle do processo  
 **Técnica proposta:** Adaptive RAG com roteador LLM de 3 níveis, contra Baseline RAG, Self-RAG e controles (LLM puro, embedding), com ablações  
-**Estado:** **v2 executada** (7 variantes × 20 questões × 3 seeds = 420 respostas, A100 80GB no Colab). Run v1 congelada em `results/run_2026-10-15_v1/`; resultados v2 em `results/` (cópia local) e no Google Drive da branch.
+**Estado:** **v2.1 executada** (7 variantes × 20 questões × 3 seeds = 420
+respostas; hybrid retrieval, top_k 10, teto de contexto 6.000 chars; GPU
+RTX PRO 6000 Blackwell no Colab). Run v1 congelada em
+`results/run_2026-10-15_v1/`; run v2 (A100, top_k 4 lexical) e run parcial
+v2.1 (hybrid, top_k 4) preservadas como histórico em `results/README.md`
+e no Drive; run limpa v2.1 em `rag-dmls-v2/results/` no Drive.
 
 ## Objetivo
 
@@ -152,6 +157,40 @@ condicional ≈ 1.0). Melhorias implementadas nesta branch:
 
 **Convenção de commits:** `feat:` / `chore:` / `doc:` (conventional commits,
 mensagem clara do escopo).
+
+## Resultados v2.1 (run limpa, 2026-10-17 — hybrid + top_k 10 + cap 6.000)
+
+**O RAG agora empatou — e na frente lexical — ganhou do pure_llm:**
+
+| Variante | v2 (lexical, k=4) | v2.1 parcial (hybrid, k=4) | **v2.1 (hybrid, k=10)** |
+|---|---|---|---|
+| baseline | 0,733 | 0,95 | **1,00** |
+| self_rag | 0,750 | 0,95 | **1,00** |
+| adaptive_route | 0,750 | 0,95 | **1,00** |
+| adaptive_expansion | 0,750 | 0,90 | 0,90 |
+| adaptive_full | 0,750 | 0,85 | 0,90 |
+| embedding | 0,833 | 0,90 | 0,90 |
+| pure_llm | 0,950 | 0,95 | 0,95 |
+
+- **McNemar vs pure_llm**: baseline/self_rag/adaptive_route **3 × 0**
+  (p = 0,25; n = 60 pares — direção uniforme a favor do RAG, sem
+  significância nesse n); expansão/full/embedding 3 × 6 (p = 0,51).
+- **Recall praticamente resolvido**: abstenções caíram de ~30% (v2) para
+  **21/420 (5%)**; os clusters Q06/Q11/Q12 sumiram. **Q17** foi resgatada
+  pelo top-10 em baseline/route/self_rag (chunk único de p.166 finalmente
+  entra no contexto); expansion/full/embedding ainda abstraem.
+- **Ablação invertida**: expansão de subqueries **dilui** o top-k quando a
+  retrieval base é forte (Q07 e Q17 piores nas variantes de expansão) — na
+  v2 ela era inócua porque a base era fraca; agora é prejudicial.
+- **Q02 invertido**: pure_llm erra 3/3 de cabeça; com retrieval híbrido
+  todas as variantes RAG acertam 3/3 — o caso de valor do retrieval.
+- Cobertura ajustada = cobertura (0 abstenções justificadas): a única
+  questão out-of-corpus (Q15) **não recebeu abstenção na v2.1** — todas
+  responderam e o juiz marcou CORRECT; segue **artefato de leniência do
+  juiz**, não vitória real (tema ausente do livro, verificação mecânica).
+- Leniência do juiz persiste: 9/21 abstenções julgadas CORRECT. Números
+  absolutos são teto; a ordenação (lexical+híbrido ≥ puro) se sustenta.
+- Latência intra-run apenas (mesma GPU da run parcial; v2 foi A100).
 
 ### Limitações
 
