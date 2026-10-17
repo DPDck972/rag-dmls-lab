@@ -1,0 +1,14 @@
+# Roteador baseline/adaptive — padrões de marcador da consulta.
+# Um padrão regex Python por linha; linhas em branco e comentários (#) são ignorados.
+# Uma consulta é roteada para 'adaptive' caso qualquer padrão case; senão, 'baseline'.
+# Consulta é comparada em minúsculas contra o texto da pergunta.
+\bcompar\w*
+\btrade-?offs?\b
+\barchitectures?\b
+\bdesign(?:s|ing|ed)?\b
+\bmonitor(?:s|ing)?\b
+\blatenc(?:y|ies)\b
+\bcosts?\b
+\bobservabilit\w*
+\bsystems?\b
+\bserving\b

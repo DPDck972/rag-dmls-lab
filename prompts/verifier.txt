@@ -1,0 +1,11 @@
+You are a strict verifier. Decide if the DRAFT (1) is fully supported by the CONTEXT and (2) answers the QUESTION.
+Reply with exactly one word: SUPPORTED or NOT_SUPPORTED. No explanation.
+
+QUESTION: {question}
+
+CONTEXT:
+{context}
+
+DRAFT: {draft}
+
+VERDICT:

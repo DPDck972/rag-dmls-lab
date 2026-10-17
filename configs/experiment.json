@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "status": "scaffold_ready",
+  "status": "run_complete",
   "course": "DCA0305",
   "group": 1,
   "family": "F4",
@@ -26,5 +26,6 @@
   "self_rag_repetitions": 3,
   "max_rounds": 2,
   "max_subqueries_per_round": 2,
-  "structured_output_retries": 1
+  "structured_output_retries": 1,
+  "judge_model": "llama3.1:8b"
 }

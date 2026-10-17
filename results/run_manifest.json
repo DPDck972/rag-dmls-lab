@@ -79,5 +79,16 @@
     "Q19": "adaptive",
     "Q20": "adaptive"
   },
-  "seed_config": 42
+  "seed_config": 42,
+  "post_run_edit": {
+    "date": "2026-10-17",
+    "file": "configs/experiment.json",
+    "delta": [
+      "status: scaffold_ready -> run_complete",
+      "added judge_model: llama3.1:8b"
+    ],
+    "previous_sha256": "d36a68f36075680ea6a9f3543e5a818b0b6f6c3af29063b6f52dc84bffb1e0be",
+    "new_sha256": "4416a16a4ab3c37bd0510f3c47aa79562ccc31bb1c56904fd2d2fe5733adc355",
+    "note": "Edição pós-run; os demais campos e o run da 2026-10-15T01:37:56Z permanecem inalterados."
+  }
 }
