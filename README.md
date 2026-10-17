@@ -97,7 +97,9 @@ Abra `notebook.ipynb` em um ambiente Jupyter com o kernel
 `Python (rag-dmls-lab)`, a partir desta pasta. O notebook já contém uma
 demonstração do pipeline RAG e requer que o PDF esteja no caminho indicado.
 O Ollama deve estar em execução com o modelo configurado em
-`configs/experiment.json`.
+`configs/experiment.json`. A avaliação de acurácia usa um segundo modelo,
+o juiz `llama3.1:8b`, também via Ollama (pull além do `qwen2.5:7b`).
+As perguntas de `questions.json` carregam `answer_key` para o grader.
 
 No Colab, disponibilize o repositório completo em `/content/rag-dmls-lab`
 antes de executar as células. A reprodução no Colab ainda precisa ser validada, para exte experimento foi utilizada uma GPU: NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB.
@@ -126,6 +128,7 @@ Os principais artefatos versionados são:
 - `summary.csv`: base consolidada das respostas e métricas das variantes;
 - `accuracy.csv` e `accuracy_summary.csv`: avaliações de acurácia e seus
   agregados;
+- `abstencoes.csv`: taxa de abstenção e precisão condicional por variante;
 - `diagnostico_baseline.csv`: diagnóstico específico das execuções Baseline;
 - `divergencias_variantes.csv` e `disagreements.csv`: comparação das respostas
   e divergências entre variantes;
