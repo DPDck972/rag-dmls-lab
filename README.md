@@ -91,6 +91,23 @@ evidência insuficiente. O prompt de geração é carregado de
 `prompts/generator.txt`, mantendo o contrato de geração separado do código do
 notebook.
 
+## Addendum: LLM puro e retrieval por embedding
+
+`notebook_addendum.ipynb` executa duas variantes de controle **sem tocar
+nos CSVs oficiais**:
+
+- **pure_llm** — o mesmo gerador sem recuperação (prompt direto), o
+  contrafato do baseline RAG;
+- **embedding** — retrieval semântico com `nomic-embed-text`
+  (`configs/experiment.json` declara esse modelo desde o scaffold),
+  isolando a contribuição da recuperação semântica contra o TF-IDF.
+
+Gera os artefatos `*_addendum` em `results/` (CSVs por repetição, grader,
+abstenções, manifesto, traces e figuras `imagem/*_addendum.png`) e a
+tabela `comparacao_variaveis_addendum.csv` com as 5 variantes lado a
+lado. Requisito: esta branch com os commits do fechamento (`answer_key`
+em `questions.json`, `judge_model` no config) e o PDF da run oficial.
+
 ## Execução inicial
 
 Abra `notebook.ipynb` em um ambiente Jupyter com o kernel
