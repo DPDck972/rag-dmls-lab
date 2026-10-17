@@ -1,0 +1,214 @@
+{
+  "Q01": {
+    "in_book": true,
+    "best_term": "quality and quantity",
+    "best_count": 2,
+    "quote": "art with building out your data, both in terms of quality and quantity. Without data, there’s no data science. 16Figure 1-3. The d",
+    "terms_found": [
+      "quality and quantity",
+      "foundational"
+    ]
+  },
+  "Q02": {
+    "in_book": true,
+    "best_term": "more data",
+    "best_count": 16,
+    "quote": "might be grouped together with computation since more data tends to require more computation. In theory, you can both pursue inte",
+    "terms_found": [
+      "more data",
+      "intelligent algorithms"
+    ]
+  },
+  "Q03": {
+    "in_book": true,
+    "best_term": "baselines",
+    "best_count": 5,
+    "quote": "ing ML. The solutions from a phase can be used as baselines to evaluate the solutions from the next phase. Phase 1. Before machine",
+    "terms_found": [
+      "baseline model",
+      "baselines"
+    ]
+  },
+  "Q04": {
+    "in_book": true,
+    "best_term": "bias",
+    "best_count": 54,
+    "quote": "vs. data. Mind might be 12disguised as inductive biases or intelligent architectural designs. Data might be grouped together with",
+    "terms_found": [
+      "selection bias",
+      "bias",
+      "noise"
+    ]
+  },
+  "Q05": {
+    "in_book": true,
+    "best_term": "feedback loop",
+    "best_count": 32,
+    "quote": "labels will become available. Natural Labels and Feedback LoopTasks with natural ground truth labels are tasks where the model’s",
+    "terms_found": [
+      "feedback loop",
+      "feedback loops"
+    ]
+  },
+  "Q06": {
+    "in_book": true,
+    "best_term": "monitoring",
+    "best_count": 22,
+    "quote": "p her get up -- so he relied on an at-home health monitoring system that predicts whether someone has fallen in the house. Even th",
+    "terms_found": [
+      "monitoring",
+      "data distribution shifts"
+    ]
+  },
+  "Q07": {
+    "in_book": true,
+    "best_term": "evaluation",
+    "best_count": 23,
+    "quote": "r 5, we’ll discuss model selection, training, and evaluation. Step 4. DeploymentAfter a model is developed, it needs to be made ac",
+    "terms_found": [
+      "evaluation",
+      "deployment"
+    ]
+  },
+  "Q08": {
+    "in_book": true,
+    "best_term": "slice",
+    "best_count": 21,
+    "quote": "g: you select samples based on quotas for certain slices of data without any randomization. For example, when doing a survey, you",
+    "terms_found": [
+      "slice",
+      "slices",
+      "subset"
+    ]
+  },
+  "Q09": {
+    "in_book": true,
+    "best_term": "training data",
+    "best_count": 84,
+    "quote": "Unseen data: Unseen data shares patterns with the training data The patterns your model learns from existing data are only useful",
+    "terms_found": [
+      "distribution shift",
+      "training data"
+    ]
+  },
+  "Q10": {
+    "in_book": true,
+    "best_term": "batch",
+    "best_count": 105,
+    "quote": "However, because most modern distributed systems batch queries to process them together, often concurrently, higher latency might",
+    "terms_found": [
+      "latency",
+      "throughput",
+      "batch",
+      "online"
+    ]
+  },
+  "Q11": {
+    "in_book": true,
+    "best_term": "retrain",
+    "best_count": 46,
+    "quote": ", too complex, and too slow to be practical. The pretrained large BERT model has 340M parameters and is 1.35GB . Fast forward two",
+    "terms_found": [
+      "retrain",
+      "retraining"
+    ]
+  },
+  "Q12": {
+    "in_book": true,
+    "best_term": "monitoring",
+    "best_count": 22,
+    "quote": "p her get up -- so he relied on an at-home health monitoring system that predicts whether someone has fallen in the house. Even th",
+    "terms_found": [
+      "monitoring",
+      "logging",
+      "logs"
+    ]
+  },
+  "Q13": {
+    "in_book": true,
+    "best_term": "minority",
+    "best_count": 20,
+    "quote": "plit seconds. This can especially hurt members of minority groups because 26 27 28misclassification on them has minor effects on m",
+    "terms_found": [
+      "rare events",
+      "underrepresented",
+      "minority",
+      "fairness"
+    ]
+  },
+  "Q14": {
+    "in_book": true,
+    "best_term": "engineering",
+    "best_count": 56,
+    "quote": "ny people — deploying them in production has many engineering and societal challenges. However, because of the speed at which thes",
+    "terms_found": [
+      "engineering",
+      "deployment",
+      "infrastructure"
+    ]
+  },
+  "Q15": {
+    "in_book": false,
+    "best_term": null,
+    "best_count": 0,
+    "quote": "",
+    "terms_found": [],
+    "searched_terms": [
+      "a/b",
+      "canary",
+      "shadow deployment",
+      "online evaluation",
+      "interleaving"
+    ]
+  },
+  "Q16": {
+    "in_book": true,
+    "best_term": "pipeline",
+    "best_count": 35,
+    "quote": "tion engines can be used to unify both processing pipelines. Once we’ve had our data systems figured out, we can collect data and",
+    "terms_found": [
+      "data pipeline",
+      "reproducibility",
+      "pipeline"
+    ]
+  },
+  "Q17": {
+    "in_book": true,
+    "best_term": "technical debt",
+    "best_count": 1,
+    "quote": "ediction in Chapter 6. 5. Useless features become technical debts. Whenever your data pipeline changes, all the affected features",
+    "terms_found": [
+      "technical debt"
+    ]
+  },
+  "Q18": {
+    "in_book": true,
+    "best_term": "online prediction",
+    "best_count": 37,
+    "quote": "eatures can increase inference latency when doing online prediction, especially if you need to extract these features from raw dat",
+    "terms_found": [
+      "batch prediction",
+      "online prediction"
+    ]
+  },
+  "Q19": {
+    "in_book": true,
+    "best_term": "model selection",
+    "best_count": 3,
+    "quote": "ature engineering and in chapter 5, we’ll discuss model selection, training, and evaluation. Step 4. DeploymentAfter a model is de",
+    "terms_found": [
+      "model selection",
+      "explainability"
+    ]
+  },
+  "Q20": {
+    "in_book": true,
+    "best_term": "workflow",
+    "best_count": 9,
+    "quote": "such an important topic throughout the ML project workflow that we’ll discuss it in different parts of the book. Specifically, we’",
+    "terms_found": [
+      "workflow",
+      "end user"
+    ]
+  }
+}
