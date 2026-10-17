@@ -26,3 +26,6 @@ tmp/
 
 # Livro usado localmente como corpus
 /corpus/documentos/designing-machine-learning-systems-2022.pdf
+
+# Estudo local de branches - nao versionar/nao publicar
+/FEATURE_BRANCH_STUDY.md
