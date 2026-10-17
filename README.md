@@ -131,6 +131,28 @@ Colab e segue a configuração local, `results_dir: results_v2`).
 - ~91% das abstenções RAG da amostra de validação referem-se a conteúdo
   que **está no livro** → miss de recall real, não deficiência do gerador.
 
+## v2.1 — branch `experiment_v3` (pacote de recall)
+
+A v2 mostrou que o gargalo é recall de retrieval, não geração (precisão
+condicional ≈ 1.0). Melhorias implementadas nesta branch:
+
+1. **Retrieval híbrido** — TF-IDF lexical + densa (`nomic-embed-text`)
+   fundidas por RRF em todas as variantes com recuperação; o índice de
+   embeddings é construído sempre (com fallback para lexical puro se o
+   Ollama não estiver disponível);
+2. **Orçamento de contexto real** — `top_k` 4 → 10 e teto **global** de
+   contexto (`context_char_cap: 6000`; o cap antigo era *por passagem* e
+   com chunks de 800 chars jamais truncava);
+3. **Filtro de boilerplate** — páginas de aviso de draft do PDF removidas
+   na ingestão (não competem mais no top-k);
+4. **Grader com escopo** — `configs/question_scope.json` (gerado por
+   `scripts/build_question_scope.py` via busca mecânica no PDF) marca as
+   questões cujo tema está fora do livro; abstenções nesses casos são
+   `justified_abstention` e a cobertura ganha coluna `cobertura_ajustada`.
+
+**Convenção de commits:** `feat:` / `chore:` / `doc:` (conventional commits,
+mensagem clara do escopo).
+
 ### Limitações
 
 - Rotulador da Fase 4 é **LLM agente** (GLM, declarado no README de
